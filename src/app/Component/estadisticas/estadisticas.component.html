@@ -1,76 +1,115 @@
 <div class="container">
-    <div class="content">
+  <div class="content">
       <div class="info-boxes">
-        <div class="card">
-          <h2>Número de trampas activas</h2>
-          <p style="color: green; font-size: 20px;">🟢 37</p>
-        </div>
-        <div class="card">
-          <h2>Capturas</h2>
-          <p>Hoy: 15</p>
-          <p>Última semana: 47</p>
-          <p>Último mes: 70</p>
-        </div>
-        <div class="card">
-          <h2>Horario de mayor actividad</h2>
-          <p>1am - 8am</p>
-        </div>
+          <div class="card">
+              <h2>Número de trampas activas</h2>
+              <p style="color: green; font-size: 20px;">🟢 37</p>
+          </div>
+          <div class="card">
+              <h2>Capturas</h2>
+              <p>Hoy: 15</p>
+              <p>Última semana: 47</p>
+              <p>Último mes: 70</p>
+          </div>
+          <div class="card">
+              <h2>Horario de mayor actividad</h2>
+              <p>1am - 8am</p>
+          </div>
       </div>
-  
+
       <!-- Contenedor para los botones y el gráfico -->
       <div style="width: 65%;">
-        <!-- Botones colocados arriba -->
-        <div class="button-group">
-          <button>DÍA</button>
-          <button>SEMANA</button>
-          <button>MES</button>
-          <button>TOTAL</button>
-        </div>
-  
-        <!-- Incorporación de la gráfica -->
-        <div class="chart-container">
-          <app-grafica></app-grafica>
-        </div>
+          <div class="button-group">
+              <button>DÍA</button>
+              <button>SEMANA</button>
+              <button>MES</button>
+              <button>TOTAL</button>
+          </div>
+
+          <div class="card chart-card">
+              <div class="chart-container">
+                  <app-grafica></app-grafica>
+              </div>
+          </div>
       </div>
-    </div>
-  
-    <div class="traps-container">
-      <div class="trap-card">
-        <div class="blue-section">
-          <img src="/assets/Trampa.png" alt="Imagen de una trampa">
-        </div>
-        <p>Trampa 1 - Información aquí</p>
-      </div>
-      <div class="trap-card">
-        <div class="blue-section">
-          <img src="/assets/Trampa.png" alt="Imagen de una trampa">
-        </div>
-        <p>Trampa 2 - Información aquí</p>
-      </div>
-      <div class="trap-card">
-        <div class="blue-section">
-          <img src="/assets/Trampa.png" alt="Imagen de una trampa">
-        </div>
-        <p>Trampa 3 - Información aquí</p>
-      </div>
-      <div class="trap-card">
-        <div class="blue-section">
-          <img src="/assets/Trampa.png" alt="Imagen de una trampa">
-        </div>
-        <p>Trampa 4 - Información aquí</p>
-      </div>
-      <div class="trap-card">
-        <div class="blue-section">
-          <img src="/assets/Trampa.png" alt="Imagen de una trampa">
-        </div>
-        <p>Trampa 5 - Información aquí</p>
-      </div>
-      <div class="trap-card">
-        <div class="blue-section">
-          <img src="/assets/Trampa.png" alt="Imagen de una trampa">
-        </div>
-        <p>Trampa 6 - Información aquí</p>
-      </div>
-    </div>
   </div>
+
+  <!-- Sección de trampas con ID y modelo -->
+  <div class="traps-container">
+      <div class="trap-card">
+          <div class="blue-section">
+              <img src="/assets/Trampa.png" alt="Imagen de una trampa">
+          </div>
+          <div class="trap-info">
+              <p><strong>ID:</strong> T001</p>
+              <p><strong>Modelo:</strong> XTR-500</p>
+          </div>
+      </div>
   
+      <div class="trap-card">
+          <div class="blue-section">
+              <img src="/assets/Trampa.png" alt="Imagen de una trampa">
+          </div>
+          <div class="trap-info">
+              <p><strong>ID:</strong> T002</p>
+              <p><strong>Modelo:</strong> XTR-500</p>
+          </div>
+      </div>
+  
+      <div class="trap-card">
+          <div class="blue-section">
+              <img src="/assets/Trampa.png" alt="Imagen de una trampa">
+          </div>
+          <div class="trap-info">
+              <p><strong>ID:</strong> T003</p>
+              <p><strong>Modelo:</strong> XTR-300</p>
+          </div>
+      </div>
+  
+      <div class="trap-card">
+          <div class="blue-section">
+              <img src="/assets/Trampa.png" alt="Imagen de una trampa">
+          </div>
+          <div class="trap-info">
+              <p><strong>ID:</strong> T004</p>
+              <p><strong>Modelo:</strong> XTR-300</p>
+          </div>
+      </div>
+      <div class="trap-card">
+          <div class="blue-section">
+              <img src="/assets/Trampa.png" alt="Imagen de una trampa">
+          </div>
+          <div class="trap-info">
+              <p><strong>ID:</strong> T005</p>
+              <p><strong>Modelo:</strong> XTR-300</p>
+          </div>
+      </div>
+      <div class="trap-card">
+          <div class="blue-section">
+              <img src="/assets/Trampa.png" alt="Imagen de una trampa">
+          </div>
+          <div class="trap-info">
+              <p><strong>ID:</strong> T006</p>
+              <p><strong>Modelo:</strong> XTR-300</p>
+          </div>
+      </div>
+      <div class="trap-card">
+          <div class="blue-section">
+              <img src="/assets/Trampa.png" alt="Imagen de una trampa">
+          </div>
+          <div class="trap-info">
+              <p><strong>ID:</strong> T007</p>
+              <p><strong>Modelo:</strong> XTR-300</p>
+          </div>
+      </div>
+      <div class="trap-card">
+          <div class="blue-section">
+              <img src="/assets/Trampa.png" alt="Imagen de una trampa">
+          </div>
+          <div class="trap-info">
+              <p><strong>ID:</strong> T008</p>
+              <p><strong>Modelo:</strong> XTR-300</p>
+          </div>
+      </div>
+  </div>    
+  </div>
