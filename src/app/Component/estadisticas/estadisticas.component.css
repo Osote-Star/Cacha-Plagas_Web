@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    color: black;
+}
+
+.container {
+    width: 90%; /* Ajustamos el ancho para que no esté pegado a los bordes */
+    max-width: 1200px; /* Limitamos el ancho máximo */
+    margin: 20px auto; /* Centramos el contenedor con márgenes automáticos */
+    padding: 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.info-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 30%;
+}
+
+.card {
+    background: white;
+    color: black;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.card h2 {
+    color: #007bff; /* Color azul para los títulos */
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Ajusta la altura del contenedor según lo necesites */
+    width: 100%;
+    background-color: #f9f9f9; /* Opcional */
+    border-radius: 8px;
+}
+
+.chart-container canvas {
+    width: 100%; /* Asegura que el canvas ocupe el 100% del contenedor */
+    height: 400px; /* Ajusta el tamaño de la gráfica */
+    margin-top: 30px; /* Mueve la gráfica hacia abajo */
+}
+
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.button-group button {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-size: 14px;
+}
+
+.button-group button:hover {
+    background: linear-gradient(135deg, #0056b3, #003c80);
+    transform: scale(1.05);
+}
+
+.traps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.trap-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden;
+}
+
+.trap-card .blue-section {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    height: 150px; /* Altura de la sección azul */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trap-card .blue-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+}
+
+.trap-card p {
+    padding: 15px;
+    margin: 0;
+}
