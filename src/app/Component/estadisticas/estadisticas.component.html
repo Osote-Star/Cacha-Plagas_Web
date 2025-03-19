@@ -15,6 +15,12 @@
               <h2>Horario de mayor actividad</h2>
               <p>1am - 8am</p>
           </div>
+          
+          <!-- Coloca el cuadro de "Zona con mayor capturas" debajo del de "Horario de mayor actividad" -->
+          <div *ngIf="!esAdmin" class="card">
+            <h2>Zona con mayor capturas</h2>
+            <p>Campo #47</p>
+          </div>
       </div>
 
       <!-- Contenedor para los botones y el gráfico -->
