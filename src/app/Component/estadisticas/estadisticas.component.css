@@ -184,3 +184,23 @@ body {
     font-weight: bold;
     color: #333;
 }
+
+.nav {
+    background-color: #0088cc;
+    color: white;
+    padding: 0;
+    display: flex;
+    width: 100%;
+}
+
+.nav-item {
+    padding: 15px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+.nav-active {
+    background-color: #005580;
+    width: auto; /* Cambiado de 100% a auto para que no abarque tanto */
+}
