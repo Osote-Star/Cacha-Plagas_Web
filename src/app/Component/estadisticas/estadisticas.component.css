@@ -83,7 +83,7 @@ body {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     margin-top: 20px;
     border: 1px solid #ddd;
-    transition: transform 0.2s, box-shadow 0.2s; /*para la animaciones que pondremos despues*/
+    transition: transform 0.2s, box-shadow 0.2s; /*para la animaciones que utilizaremos despues*/
     transition: none !important;
 }
 
