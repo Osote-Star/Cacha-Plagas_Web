@@ -2,7 +2,6 @@ import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { Router, RouterOutlet, RouterModule, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { filter, Subscription } from 'rxjs';
-import { Console } from 'console';
 
 
 @Component({

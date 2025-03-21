@@ -13,6 +13,6 @@ export class VerTrampasComponent {
     id: '9347',
     name: 'RAT-TRAP',
     description: 'Especializada en ratas, esta trampa es simple y efectiva, cumple su objetivo gracias a su tamaño y materiales resistentes.',
-    imageUrl: '/public/rat-trap.png'
+    imageUrl: '/assets/Trampa.png'
   });
 }
