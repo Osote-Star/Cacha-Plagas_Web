@@ -25,7 +25,7 @@ body {
     gap: 20px;
 }
 
-/* Estilo de cada tarjeta */
+
 .info-boxes .card {
     background-color: #fff;
     padding: 7px 55px;
@@ -37,21 +37,21 @@ body {
     min-height: 120px;
 }
 
-/* Centrar los títulos en la parte superior de la tarjeta */
+
 .info-boxes .card h2 {
     font-size: 18px;
     margin-bottom: 8px;
     text-align: center;
 }
 
-/* Alinear la información (párrafos) a la izquierda */
+
 .info-boxes .card p {
     font-size: 14px;
     margin: 3px 0;
     text-align: left;
 }
 
-/* Específicamente para los valores numéricos en verde */
+
 .info-boxes .card p[style="color: green;"] {
     font-size: 18px;
 }
@@ -65,7 +65,7 @@ body {
     border: 1px solid #ddd;
 }
 
-/* Eliminar las animaciones de transformación y sombra */
+
 .card:hover {
     transform: none;
     box-shadow: none;
@@ -83,13 +83,13 @@ body {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     margin-top: 20px;
     border: 1px solid #ddd;
-    /* Eliminar transiciones y transformaciones */
+    transition: transform 0.2s, box-shadow 0.2s; /*para la animaciones que pondremos despues*/
     transition: none !important;
 }
 
 .chart-card:hover {
-    transform: none !important; /* Eliminar efecto hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Mantener la sombra original */
+    transform: none !important; 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
 }
 
 .chart-container {
@@ -123,67 +123,6 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
-.traps-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 58px;
-    margin-top: 100px;
-    width: 100%;
-}
-
-.trap-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 15px;
-    border: 1px solid #ddd;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.trap-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.trap-card .blue-section {
-    background: linear-gradient(135deg, #a7c9ff, #7ab9ff);
-    width: 100%;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-bottom-left-radius: 50% 30px;
-    border-bottom-right-radius: 50% 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.trap-card .blue-section img {
-    width: 70%;
-    height: auto;
-    object-fit: contain;
-}
-
-.trap-info {
-    width: 100%;
-    padding: 0px;
-    font-size: 14px;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 8px;
-}
-
-.trap-info p {
-    margin: 0;
-    font-weight: bold;
-    color: #333;
-}
 
 .nav {
     background-color: #0088cc;
@@ -202,5 +141,5 @@ body {
 
 .nav-active {
     background-color: #005580;
-    width: auto; /* Cambiado de 100% a auto para que no abarque tanto */
+    width: auto; 
 }

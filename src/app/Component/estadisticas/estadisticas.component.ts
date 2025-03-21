@@ -12,6 +12,14 @@ import { CommonModule } from '@angular/common';
 export class EstadisticasComponent {
   esAdmin: boolean = false; // Variable para identificar si es admin o usuario
 
+  // Datos de las trampas que se utilizarán en el frontend
+  products = Array(8).fill({
+    id: '9347',
+    name: 'RAT-TRAP',
+    description: 'Especializada en ratas, esta trampa es simple y efectiva, cumple su objetivo gracias a su tamaño y materiales resistentes.',
+    imageUrl: '/assets/Trampa.png'
+  });
+
   constructor() {
     // Verifica si estamos en un entorno de navegador antes de acceder a localStorage
     if (typeof window !== 'undefined' && window.localStorage) {
@@ -22,5 +30,8 @@ export class EstadisticasComponent {
         this.esAdmin = false; // Asumimos que es usuario si no es admin
       }
     }
+
+    
   }
+  
 }

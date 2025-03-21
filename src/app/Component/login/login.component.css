@@ -48,6 +48,12 @@ body {
     font-size: 28px;
 }
 
+.login-container h2 {
+    color: #fff;
+    margin: 10px 0;
+    font-size: 22px;
+}
+
 .input-group {
     display: flex;
     align-items: center;

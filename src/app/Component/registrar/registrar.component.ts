@@ -1,11 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar',
-  imports: [],
   templateUrl: './registrar.component.html',
-  styleUrl: './registrar.component.css'
+  styleUrls: ['./registrar.component.css']
 })
-export class RegistrarComponent {
+export class RegistrarComponent implements OnInit {
 
+  constructor( private router: Router) { }
+
+  ngOnInit() {
+  }
+
+  redirigir(){
+    console.log("Redirigiendo...");
+    this.router.navigate(['validar']);
+  }
 }

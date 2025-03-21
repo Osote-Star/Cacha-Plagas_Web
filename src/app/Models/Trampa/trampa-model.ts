@@ -12,5 +12,3 @@ export interface TrampaModel {
   EstatusPuerta: boolean;
   Capturas?: CapturaModel[];
 }
-
-

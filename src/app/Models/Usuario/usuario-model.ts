@@ -8,4 +8,3 @@ export interface UsuarioModel {
   Rol: string;
   Trampas: TrampaModel[];
 }
-

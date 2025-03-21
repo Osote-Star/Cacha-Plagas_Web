@@ -1,11 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  imports: [],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  selector: 'app-Login',
+  templateUrl: './Login.component.html',
+  styleUrls: ['./Login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+
+  constructor(private router: Router) { }
+
+  ngOnInit() {
+  }
+  
+  redirigirC() {
+    console.log("Redirigiendo...");
+    this.router.navigate(['recuperar-contrasena']);
+  }
+
+  redirigirR() {
+    console.log("Redirigiendo...");
+    this.router.navigate(['registrar']);
+  }
 
 }
