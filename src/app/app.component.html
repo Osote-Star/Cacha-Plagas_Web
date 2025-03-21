@@ -1,31 +1,32 @@
 <main>
-    <header class="bg-primary text-white py-4 text-center w-100">
-      <div class="container">
-        <h1 class="display-5">Cacha-Plagas</h1>
-        <p class="lead">Moral y eficiente</p>
-      </div>
-    </header>
-    
-    <nav class="w-100 mb-4 nav-container" style="background-color: #2697FF;">
-      <div class="container-fluid p-0">
-        <div class="row">
-          <div class="col-10">
-            <ul class="nav flex-row" id="nav-tabs">
-              <li class="nav-item text-center w-25" id="trampas-tab">
-                <a [routerLink]="['/VerTrampas']"  class="nav-link text-white py-3 px-4 fw-bold">Trampas</a>
-              </li>
-              <li class="nav-item text-center w-25" id="estadisticas-tab">
-                <a [routerLink]="['/VerEstadisticas']"   class="nav-link text-white py-3 px-4 fw-bold">Estadísticas</a>
-              </li>
-              <li class="nav-item text-center w-25" id="gradiente-tab">
-              </li>
-            </ul>
-          </div>
+  <header class="bg-primary text-white py-4 text-center w-100">
+    <div class="container">
+      <h1 class="display-5">Cacha-Plagas</h1>
+      <p class="lead">Moral y eficiente</p>
+    </div>
+  </header>
+  
+  <nav class="w-100 mb-4 nav-container" style="background-color: #2697FF;">
+    <div class="container-fluid p-0">
+      <div class="row">
+        <div class="col-10">
+          <ul class="nav flex-row" id="nav-tabs">
+            <li class="nav-item text-center w-25" id="trampas-tab">
+              <a [routerLink]="['/VerTrampas']"  class="nav-link text-white py-3 px-4 fw-bold">Trampas</a>
+            </li>
+            <li class="nav-item text-center w-25" id="estadisticas-tab">
+              <a [routerLink]="['/VerEstadisticas']"   class="nav-link text-white py-3 px-4 fw-bold">Estadísticas</a>
+            </li>
+            <li class="nav-item text-center w-25" id="gradiente-tab">
+            </li>
+          </ul>
         </div>
       </div>
-    </nav>
-  
-    <div class="container">
-      <router-outlet></router-outlet>
     </div>
-  </main>
+  </nav>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+

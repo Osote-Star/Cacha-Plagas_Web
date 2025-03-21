@@ -17,9 +17,9 @@ export class EstadisticasComponent {
     if (typeof window !== 'undefined' && window.localStorage) {
       const rol = localStorage.getItem('rol'); // Supongamos que el rol se guarda en localStorage
       if (rol === 'admin') {
-        this.esAdmin = false; // Comprobamos si es admin
+        this.esAdmin = true; // Comprobamos si es admin
       } else {
-        this.esAdmin = true; // Asumimos que es usuario si no es admin
+        this.esAdmin = false; // Asumimos que es usuario si no es admin
       }
     }
   }
