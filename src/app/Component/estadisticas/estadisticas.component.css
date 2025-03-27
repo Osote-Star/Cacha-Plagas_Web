@@ -56,6 +56,15 @@ body {
     font-size: 18px;
 }
 
+.row .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .row .card:hover {
+    transform: translateY(-10px); /* Eleva ligeramente */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3); /* Aumenta la sombra */
+  }
+
 
 .card h2 {
     color: #007bff;
