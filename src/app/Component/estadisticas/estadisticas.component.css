@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
     padding: 80px 20px;
 }
@@ -56,20 +56,6 @@ body {
     font-size: 18px;
 }
 
-.card {
-    background: white;
-    color: black;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    border: 1px solid #ddd;
-}
-
-
-.card:hover {
-    transform: none;
-    box-shadow: none;
-}
 
 .card h2 {
     color: #007bff;
