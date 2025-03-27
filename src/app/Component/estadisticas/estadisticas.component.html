@@ -40,24 +40,38 @@
         </div>
     </div>
   
-    <!-- Sección de trampas con ID y modelo -->
+   <!-- Sección de trampas con ID y modelo -->
 <div style="margin: 71px 0">
-    <div class="row">
-      <div *ngFor="let product of products" class="col-md-3 mb-5">
-        <div class="card h-100">
-          <div class="bg-primary bg-gradient p-3 rounded-top d-flex justify-content-center">
-            <img [src]="product.imageUrl" alt="Rat Trap" class="img-fluid" style="height: 150px; object-fit: contain;">
+  <div class="row">
+    <div *ngFor="let product of products" class="col-md-3 mb-5">
+      <div class="card h-100" (click)="openModal(product)">
+        <div class="bg-primary bg-gradient p-3 rounded-top d-flex justify-content-center">
+          <img [src]="product.imageUrl" alt="Rat Trap" class="img-fluid" style="height: 150px; object-fit: contain;">
+        </div>
+        <div class="card-body bg-light">
+          <div class="d-flex justify-content-between">
+            <small class="text-muted">{{ product.id }}</small>
+            <small class="text-primary">{{ product.name }}</small>
           </div>
-          <div class="card-body bg-light">
-            <div class="d-flex justify-content-between">
-              <small class="text-muted">{{ product.id }}</small>
-              <small class="text-primary">{{ product.name }}</small>
-            </div>
-            <p class="card-text small mt-2">{{ product.description }}</p>
-          </div>
+          <p class="card-text small mt-2">{{ product.description }}</p>
         </div>
       </div>
     </div>
   </div>
 </div>
-  
+
+
+<!-- Modal (p-dialog) para agregar trampa -->
+<p-dialog header="Estadistica" [(visible)]="ModalVisible" [modal]="true" 
+[closable]="true" [style]="{width: '800px', height: '800px'}" [contentStyle]="{'overflow': 'visible'}">   
+
+<div class="modal-body" style="height: 100%; display: flex; justify-content: center;">
+  <app-grafica style="width: 100%; height: 400px;"></app-grafica>  <!-- Ajusta el tamaño aquí -->
+</div>
+
+  <ng-template pTemplate="footer">
+    <div class="d-flex justify-content-ed">
+    </div>
+  </ng-template>
+</p-dialog>
+

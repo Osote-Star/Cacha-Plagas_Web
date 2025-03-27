@@ -2,7 +2,6 @@ import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { Router, RouterOutlet, RouterModule, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { filter, Subscription } from 'rxjs';
-import { Console } from 'console';
 
 
 @Component({
@@ -50,21 +49,30 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     const estadisticasTab = document.getElementById('estadisticas-tab');
     const gradienteTab = document.getElementById('gradiente-tab');
 
-    if (!trampasTab || !estadisticasTab || !gradienteTab) return;
+    if (!trampasTab || !estadisticasTab || !gradienteTab) {
+      return;
+    }
+
     // Limpiar clases existentes
     trampasTab.classList.remove('trampas-active');
     estadisticasTab.classList.remove('trampas-estadistica-active');
     estadisticasTab.classList.remove('estadisticas-active');
     trampasTab.classList.remove('estadisticas-trampa-active');
-    gradienteTab.classList.remove('estadisticas-gradiente-active')
+    gradienteTab.classList.remove('estadisticas-gradiente-active');
+
     // Agregar clase según la ruta actual
     if (url.includes('/VerTrampas')) {
+
       trampasTab.classList.add('trampas-active');
       estadisticasTab.classList.add('trampas-estadistica-active');
-    } else if (url.includes('/VerEstadisticas')) {
+
+    } 
+    else if (url.includes('/VerEstadisticas')) {
+     
       estadisticasTab.classList.add('estadisticas-active');
       trampasTab.classList.add('estadisticas-trampa-active');
       gradienteTab.classList.add('estadisticas-gradiente-active');
+
     }
   }
 }

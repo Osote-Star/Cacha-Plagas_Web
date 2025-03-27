@@ -6,6 +6,7 @@ body {
     color: black;
 }
 
+
 .container {
     width: 95%;
     margin: 0 auto;
@@ -91,7 +92,12 @@ body {
     height: 350px;
     width: 100%;
     max-width: none;
+    position: relative;
 }
+
+.p-dialog .modal-body {
+    overflow: visible; /* Asegúrate de que el contenido no esté recortado */
+  }
 
 .button-group {
     display: flex;

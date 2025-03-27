@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { AgregarTrampaComponent } from './Component/agregar-trampa/agregar-trampa.component'; // ✅ Archivo correcto
 import { VerTrampasComponent } from './Component/ver-trampas/ver-trampas.component';
 import { LoginComponent } from './Component/login/login.component';
 import { EstadisticasComponent } from './Component/estadisticas/estadisticas.component';
