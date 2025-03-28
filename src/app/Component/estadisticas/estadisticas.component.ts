@@ -30,15 +30,6 @@ export class EstadisticasComponent {
     imageUrl: '/assets/Trampa.png'
   });
 
-  // Datos para el formulario de agregar trampa
-  Trampa: TrampaModel[] = [];
-  predefinedModels: { label: string, value: string }[] = [
-    { label: 'Modelo A', value: 'Modelo A' },
-    { label: 'Modelo B', value: 'Modelo B' },
-    { label: 'Modelo C', value: 'Modelo C' },
-    { label: 'Modelo D', value: 'Modelo D' }
-  ];
-
   AddTrampForm!: FormGroup;
   ModalVisible: boolean = false;
   
