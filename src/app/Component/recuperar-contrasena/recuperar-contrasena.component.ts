@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-recuperar-contrasena',
-  templateUrl: './recuperar-contrasena.component.html',
-  styleUrls: ['./recuperar-contrasena.component.css']
+    selector: 'app-recuperar-contrasena',
+    templateUrl: './recuperar-contrasena.component.html',
+    styleUrls: ['./recuperar-contrasena.component.css'],
+    standalone: false
 })
 export class RecuperarContrasenaComponent implements OnInit {
 

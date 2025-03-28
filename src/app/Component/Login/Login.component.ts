@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-Login',
-  templateUrl: './Login.component.html',
-  styleUrls: ['./Login.component.css']
+    selector: 'app-Login',
+    templateUrl: './Login.component.html',
+    styleUrls: ['./Login.component.css'],
+    standalone: false
 })
 export class LoginComponent implements OnInit {
 

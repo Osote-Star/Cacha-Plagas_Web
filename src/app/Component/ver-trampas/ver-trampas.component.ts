@@ -9,11 +9,10 @@ import { TrampaModel } from '../../Models/Trampa/trampa-model';
 import { CardModule } from 'primeng/card';
 
 @Component({
-  selector: 'app-ver-trampas',
-  imports: [CommonModule, ButtonModule, SelectModule, DialogModule, FormsModule, ReactiveFormsModule, CardModule],
-  standalone: true,
-  templateUrl: './ver-trampas.component.html',
-  styleUrl: './ver-trampas.component.css'
+    selector: 'app-ver-trampas',
+    imports: [CommonModule, ButtonModule, SelectModule, DialogModule, FormsModule, ReactiveFormsModule, CardModule],
+    templateUrl: './ver-trampas.component.html',
+    styleUrl: './ver-trampas.component.css'
 })
 export class VerTrampasComponent {
   Trampa: TrampaModel[] = [];

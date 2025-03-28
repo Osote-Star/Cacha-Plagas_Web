@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-agregar-trampa',
-  templateUrl: './agregar-trampa.component.html',
-  styleUrls: ['./agregar-trampa.component.css']
+    selector: 'app-agregar-trampa',
+    templateUrl: './agregar-trampa.component.html',
+    styleUrls: ['./agregar-trampa.component.css'],
+    standalone: false
 })
 export class AgregarTrampaComponent implements OnInit {
 
