@@ -62,16 +62,42 @@
 
 
 <!-- Modal (p-dialog) para agregar trampa -->
-<p-dialog header="Estadistica" [(visible)]="ModalVisible" [modal]="true" 
-[closable]="true" [style]="{width: '800px', height: '800px'}" [contentStyle]="{'overflow': 'visible'}">   
-
-<div class="modal-body" style="height: 100%; display: flex; justify-content: center;">
-  <app-grafica style="width: 100%; height: 400px;"></app-grafica>  <!-- Ajusta el tamaño aquí -->
-</div>
-
-  <ng-template pTemplate="footer">
-    <div class="d-flex justify-content-ed">
+<p-dialog  header="Estadisticas" [(visible)]="ModalVisible" [modal]="true" 
+          [closable]="true" [style]="{width: '90vw', maxWidth: '720px'}" 
+          [contentStyle]="{'height': '70vh', 'overflow': 'auto'}">
+    
+          <div class="info-boxes">
+          <div class="card">
+            <h2 style="color: #007bff">Capturas</h2>
+            <p>Hoy: 15</p>
+            <p>Última semana: 47</p>
+            <p>Último mes: 70</p>
+        </div>
+        <div class="card">
+          <h2 style="color: #007bff">Ultima captura</h2>
+          <p>Lunes 12 de mayo 5:38PM</p>
+      </div>
+     </div>
+          <!-- Botones-->
+          <div style="width: 70%; margin-left: 105px;" >         
+          <div class="button-group button-group-modal">
+            <button>DÍA</button>
+            <button>SEMANA</button>
+            <button>MES</button>
+            <button>TOTAL</button>
+        </div>
+        
+  <!-- grafica -->
+  <div class="card chart-cardmodal">
+    <div class="chart-containermodal">
+  <div class="grafica-body p-4">
+    <div style="height: 100%; width: 100%;">
+      <app-grafica [isModalVisible]="ModalVisible"></app-grafica>
     </div>
-  </ng-template>
+  </div>
+</div>
+</div>
+</div>
 </p-dialog>
+
 
