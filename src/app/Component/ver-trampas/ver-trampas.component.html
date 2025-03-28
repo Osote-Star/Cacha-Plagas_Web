@@ -1,0 +1,76 @@
+<div class="custom-container mt-4">
+    <div class="row mb-4 g-3 align-items-center">
+      <div class="col-6 col-sm-4 col-md-4 col-lg-2 me-md-3">
+        <p-select
+          id="modelo"
+          [options]="predefinedModels"
+          placeholder="Selecciona un Modelo"
+          class="w-100">
+        </p-select>
+      </div>
+      <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+        <button 
+          pButton 
+          class="btn btn-success btn-primary w-100" 
+          (click)="openModal()" 
+          type="button" 
+          label="Agregar">
+        </button>
+      </div>
+  </div>
+    
+  <div class="row">
+    <div *ngFor="let product of products" class="col-md-3 mb-5">
+      <p-card class="h-100" [style]="{ 'width': '100%', 'overflow': 'hidden' }">
+        <!-- Header con imagen -->
+        <ng-template pTemplate="header">
+          <div class="bg-primary bg-gradient p-3 d-flex justify-content-center">
+            <img [src]="product.imageUrl" alt="Producto" 
+                 class="img-fluid" 
+                 style="height: 150px; object-fit: contain;">
+          </div>
+        </ng-template>
+        <!-- Contenido principal -->
+        <ng-template pTemplate="body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <small class="text-muted">{{ product.id }}</small>
+            <small class="mb-0">{{ product.name }}</small>
+          </div>
+          <p class="small" style="font-size: 0.9rem;">
+            {{ product.description }}
+          </p>
+        </ng-template>
+        <!-- Footer opcional -->
+      </p-card>
+    </div>
+  </div>
+  </div>
+    
+  <p-dialog header="Agregar Trampa" [(visible)]="ModalVisible" [modal]="true" 
+  [closable]="true" [style]="{width: '400px', height: '400px'}" [contentStyle]="{'overflow': 'visible'}">
+  
+    <form [formGroup]="AddTrampForm" (ngSubmit)="saveTrampa()">
+      <div class="mb-2">
+        <label for="trampaId" class="form-label">Código</label>
+        <input id="trampaId" pInputText formControlName="IdTrampa" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="modelo" class="form-label">Modelo</label>
+        <div>
+          <p-select
+            id="modelo"
+            [options]="predefinedModels"
+            formControlName="Modelo"
+            placeholder="Selecciona un Modelo">
+          </p-select>
+        </div>
+      </div>
+    </form>
+  
+    <ng-template pTemplate="footer">
+      <div class="d-flex justify-content-end">
+        <button (click)="closeModal()" type="button" class="btn btn-secondary me-2">Cerrar</button>
+        <button pButton type="submit" icon="pi pi-plus" label="Agregar" class="btn btn-success" [disabled]="!AddTrampForm.valid" (click)="saveTrampa()"></button>
+      </div>
+    </ng-template>
+  </p-dialog>
