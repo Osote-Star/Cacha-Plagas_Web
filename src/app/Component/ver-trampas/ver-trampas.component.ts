@@ -5,9 +5,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { SelectModule } from 'primeng/select';
 import { ButtonModule } from 'primeng/button';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TrampaModel } from '../../Models/Trampa/trampa-model';
 import { CardModule } from 'primeng/card';
-
+import { TrampaModel } from '../../Models/Trampa/trampa-model';
 @Component({
     selector: 'app-ver-trampas',
     imports: [CommonModule, ButtonModule, SelectModule, DialogModule, FormsModule, ReactiveFormsModule, CardModule],

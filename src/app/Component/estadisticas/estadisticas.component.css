@@ -1,0 +1,214 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f0f2f5;
+    color: black;
+}
+
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.info-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.info-boxes .card {
+    background-color: #fff;
+    padding: 7px 55px;
+    border-radius: 8px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    border: 1px solid #ddd;
+    margin: 0;
+    height: auto;
+    min-height: 138px;
+}
+
+
+.info-boxes .card h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+
+.info-boxes .card p {
+    font-size: 14px;
+    margin: 3px 0;
+    text-align: left;
+}
+
+
+.info-boxes .card p[style="color: green;"] {
+    font-size: 18px;
+}
+
+.row .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .row .card:hover {
+    transform: translateY(-10px); /* Eleva ligeramente */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3); /* Aumenta la sombra */
+  }
+
+
+.card h2 {
+    color: #007bff;
+}
+
+.chart-card {
+    background: white;
+    color: black;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    transition: none !important;
+}
+
+.chart-card:hover {
+    transform: none !important; 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
+}
+
+
+.chart-container {
+    height: 350px;
+    width: 100%;
+    max-width: none;
+    position: relative;
+}
+
+.p-dialog .modal-body {
+    overflow: visible; /* Asegúrate de que el contenido no esté recortado */
+  }
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.button-group button {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button-group button:hover {
+    background: linear-gradient(135deg, #0056b3, #003c80);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+.nav {
+    background-color: #0088cc;
+    color: white;
+    padding: 0;
+    display: flex;
+    width: 100%;
+}
+
+.nav-item {
+    padding: 15px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+.nav-active {
+    background-color: #005580;
+    width: auto; 
+}
+
+
+  .grafica-body {
+    height: 50%;
+    width: 100%;
+  }
+
+  .button-group-modal {
+    margin-top: 0px; /* Ajusta este valor para bajar más o menos los botones */
+  }
+ 
+  :host ::ng-deep .p-dialog-header {
+    display: flex;
+    color: white;
+    background-color: #007bff;
+    justify-content: center;
+    border-radius: 10px 10px 0 0;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid black; /* Línea separadora */
+  }
+  
+  :host ::ng-deep .p-dialog-title {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+  }
+  
+  :host ::ng-deep .p-dialog-header .p-dialog-header-icon {
+    position: absolute;
+    right: 10px;
+  }
+
+  
+  /* Estilo para info-boxes dentro del modal */
+:host ::ng-deep .p-dialog .p-dialog-content .info-boxes {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 35px !important; /* Intentamos con gap primero */
+  }
+  
+  /* Opcional: ajustar el tamaño de las cartas en el modal */
+  :host ::ng-deep .p-dialog .info-boxes .card {
+    flex: 1;
+    max-width: 350px;
+  }
+
+  .chart-cardmodal {
+        background: white;
+    color: black;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    transition: none !important;
+}
+
+.chart-containermodal {
+    height: 100%;
+    width: 100%;
+    max-width: none;
+    position: relative;
+}
+
+
+
