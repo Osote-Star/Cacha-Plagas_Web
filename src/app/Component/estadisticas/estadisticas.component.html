@@ -1,102 +1,103 @@
 <div class="container">
-    <div class="content">
-        <div class="info-boxes">
-            <div class="card">
-                <h2>Número de trampas activas</h2>
-                <p style="color: green; font-size: 20px;">🟢 37</p>
-            </div>
-            <div class="card">
-                <h2>Capturas</h2>
-                <p>Hoy: 15</p>
-                <p>Última semana: 47</p>
-                <p>Último mes: 70</p>
-            </div>
-            <div class="card">
-                <h2>Horario de mayor actividad</h2>
-                <p style="font-size: 16px;">1am - 8am</p>
-            </div>
-            
-            <!-- Coloca el cuadro de "Zona con mayor capturas" debajo del de "Horario de mayor actividad" -->
-            <div *ngIf="!esAdmin" class="card">
-              <h2>Zona con mayor capturas</h2>
-              <p style="font-size: 16px;">Campo #47</p>
-            </div>
-        </div>
-  
-        <!-- Contenedor para los botones y el gráfico -->
-        <div style="width: 65%;">
-            <div class="button-group">
-                <button>DÍA</button>
-                <button>SEMANA</button>
-                <button>MES</button>
-                <button>TOTAL</button>
-            </div>
-  
-            <div class="card chart-card">
-                <div class="chart-container">
-                    <app-grafica></app-grafica>
-                </div>
-            </div>
-        </div>
-    </div>
-  
-   <!-- Sección de trampas con ID y modelo -->
-<div style="margin: 71px 0">
-  <div class="row">
-    <div *ngFor="let product of products" class="col-md-3 mb-5">
-      <div class="card h-100" (click)="openModal(product)">
-        <div class="bg-primary bg-gradient p-3 rounded-top d-flex justify-content-center">
-          <img [src]="product.imageUrl" alt="Rat Trap" class="img-fluid" style="height: 150px; object-fit: contain;">
-        </div>
-        <div class="card-body bg-light">
-          <div class="d-flex justify-content-between">
-            <small class="text-muted">{{ product.id }}</small>
-            <small class="text-primary">{{ product.name }}</small>
+  <div class="content">
+      <div class="info-boxes">
+          <div class="card">
+              <h2>Número de trampas activas</h2>
+              <p style="color: green; font-size: 20px;">🟢 37</p>
           </div>
-          <p class="card-text small mt-2">{{ product.description }}</p>
+          <div class="card">
+              <h2>Capturas</h2>
+              <p>Hoy: 15</p>
+              <p>Última semana: 47</p>
+              <p>Último mes: 70</p>
+          </div>
+          <div class="card">
+              <h2>Horario de mayor actividad</h2>
+              <p style="font-size: 16px;">1am - 8am</p>
+          </div>
+          
+          <!-- Coloca el cuadro de "Zona con mayor capturas" debajo del de "Horario de mayor actividad" -->
+          <div *ngIf="!esAdmin" class="card">
+            <h2>Zona con mayor capturas</h2>
+            <p style="font-size: 16px;">Campo #47</p>
+          </div>
+      </div>
+
+      <!-- Contenedor para los botones y el gráfico -->
+      <div style="width: 65%;">
+          <div class="button-group">
+              <button>DÍA</button>
+              <button>SEMANA</button>
+              <button>MES</button>
+              <button>TOTAL</button>
+          </div>
+
+          <div class="card chart-card">
+              <div class="chart-container">
+                  <app-grafica></app-grafica>
+              </div>
+          </div>
+      </div>
+  </div>
+
+ <!-- Sección de trampas con ID y modelo -->
+<div style="margin: 71px 0">
+<div class="row">
+  <div *ngFor="let product of products" class="col-md-3 mb-5">
+    <div class="card h-100" (click)="openModal(product)">
+      <div class="bg-primary bg-gradient p-3 rounded-top d-flex justify-content-center">
+        <img [src]="product.imageUrl" alt="Rat Trap" class="img-fluid" style="height: 150px; object-fit: contain;">
+      </div>
+      <div class="card-body bg-light">
+        <div class="d-flex justify-content-between">
+          <small class="text-muted">{{ product.id }}</small>
+          <small class="text-primary">{{ product.name }}</small>
         </div>
+        <p class="card-text small mt-2">{{ product.description }}</p>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
 <!-- Modal (p-dialog) para agregar trampa -->
 <p-dialog  header="Estadisticas" [(visible)]="ModalVisible" [modal]="true" 
-          [closable]="true" [style]="{width: '90vw', maxWidth: '720px'}" 
-          [contentStyle]="{'height': '70vh', 'overflow': 'auto'}">
-    
-          <div class="info-boxes">
-          <div class="card">
-            <h2 style="color: #007bff">Capturas</h2>
-            <p>Hoy: 15</p>
-            <p>Última semana: 47</p>
-            <p>Último mes: 70</p>
-        </div>
+        [closable]="true" [style]="{width: '90vw', maxWidth: '720px'}" 
+        [contentStyle]="{'height': '70vh', 'overflow': 'auto'}">
+  
+        <div class="info-boxes">
         <div class="card">
-          <h2 style="color: #007bff">Ultima captura</h2>
-          <p>Lunes 12 de mayo 5:38PM</p>
+          <h2 style="color: #007bff">Capturas</h2>
+          <p>Hoy: 15</p>
+          <p>Última semana: 47</p>
+          <p>Último mes: 70</p>
       </div>
-     </div>
-          <!-- Botones-->
-          <div style="width: 70%; margin-left: 105px;" >         
-          <div class="button-group button-group-modal">
-            <button>DÍA</button>
-            <button>SEMANA</button>
-            <button>MES</button>
-            <button>TOTAL</button>
-        </div>
-        
-  <!-- grafica -->
-  <div class="card chart-cardmodal">
-    <div class="chart-containermodal">
-  <div class="grafica-body p-4">
-    <div style="height: 100%; width: 100%;">
-      <app-grafica [isModalVisible]="ModalVisible"></app-grafica>
+      <div class="card">
+        <h2 style="color: #007bff">Ultima captura</h2>
+        <p>Lunes 12 de mayo 5:38PM</p>
     </div>
+   </div>
+        <!-- Botones-->
+        <div style="width: 70%; margin-left: 105px;" >         
+        <div class="button-group button-group-modal">
+          <button>DÍA</button>
+          <button>SEMANA</button>
+          <button>MES</button>
+          <button>TOTAL</button>
+      </div>
+      
+<!-- grafica -->
+<div class="card chart-cardmodal">
+  <div class="chart-containermodal">
+<div class="grafica-body p-4">
+  <div style="height: 100%; width: 100%;">
+    <app-grafica [isModalVisible]="ModalVisible"></app-grafica>
   </div>
 </div>
 </div>
 </div>
+</div>
 </p-dialog>
+
 
