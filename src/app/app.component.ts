@@ -2,6 +2,7 @@ import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { Router, RouterOutlet, RouterModule, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { filter, Subscription } from 'rxjs';
+import { routes } from './app.routes';
 
 
 @Component({
@@ -14,8 +15,9 @@ import { filter, Subscription } from 'rxjs';
 export class AppComponent implements AfterViewInit, OnDestroy {
   private routerSubscription: Subscription | undefined;
 
-  constructor(private router: Router) {}
-
+  constructor(private router: Router) {
+    this.router.resetConfig(routes); // Aplica las rutas desde app.route.ts
+  }
   title = 'Cacha-Plagas_Web';
 
   ngAfterViewInit() {
@@ -33,9 +35,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   esInterfazEspecial(): boolean {
-    // Ocultar header y navbar en las rutas de login y registro
-    return this.router.url.includes('/login') || this.router.url.includes('/registrar')
-    || this.router.url.includes('/recuperar-contrasena')  || this.router.url.includes('/validar');
+    const currentUrl = this.router.url.toLowerCase(); // Normaliza a minúsculas
+    return currentUrl === '/login' || currentUrl === '/registrar' || 
+           currentUrl === '/recuperar-contrasena' || currentUrl === '/validar';
   }
 
   private setupNavHighlight() {
@@ -68,13 +70,13 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     gradienteTab.classList.remove('estadisticas-gradiente-active');
 
     // Agregar clase según la ruta actual
-    if (url.includes('/VerTrampas')) {
+    if (url.includes('/ver-trampas')) {
 
       trampasTab.classList.add('trampas-active');
       estadisticasTab.classList.add('trampas-estadistica-active');
 
     } 
-    else if (url.includes('/VerEstadisticas')) {
+    else if (url.includes('/estadisticas')) {
      
       estadisticasTab.classList.add('estadisticas-active');
       trampasTab.classList.add('estadisticas-trampa-active');

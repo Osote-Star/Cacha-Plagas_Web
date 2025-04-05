@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
     selector: 'app-recuperar-contrasena',
     templateUrl: './recuperar-contrasena.component.html',
     styleUrls: ['./recuperar-contrasena.component.css'],
-    standalone: false
+    standalone: true
 })
 export class RecuperarContrasenaComponent implements OnInit {
 

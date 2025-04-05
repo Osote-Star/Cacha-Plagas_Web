@@ -11,7 +11,8 @@ import { TrampaModel } from '../../Models/Trampa/trampa-model';
     selector: 'app-ver-trampas',
     imports: [CommonModule, ButtonModule, SelectModule, DialogModule, FormsModule, ReactiveFormsModule, CardModule],
     templateUrl: './ver-trampas.component.html',
-    styleUrl: './ver-trampas.component.css'
+    styleUrl: './ver-trampas.component.css',
+    standalone: true
 })
 export class VerTrampasComponent {
   Trampa: TrampaModel[] = [];

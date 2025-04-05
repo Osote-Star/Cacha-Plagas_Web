@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
     selector: 'app-registrar',
     templateUrl: './registrar.component.html',
     styleUrls: ['./registrar.component.css'],
-    standalone: false
+    standalone: true
 })
 export class RegistrarComponent implements OnInit {
 

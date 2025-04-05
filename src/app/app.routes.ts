@@ -7,12 +7,14 @@ import { VerTrampasComponent } from './Component/ver-trampas/ver-trampas.compone
 import { EstadisticasComponent } from './Component/estadisticas/estadisticas.component';
 
 
+
 export const routes: Routes = [
-  { path: 'ver-trampas', component: VerTrampasComponent },
+      { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirige la ruta vacía a /login
+      { path: 'login', component:LoginComponent},
+      { path: 'ver-trampas', component: VerTrampasComponent },
       { path: 'recuperar-contrasena', component: RecuperarContrasenaComponent },
       { path: 'registrar', component: RegistrarComponent },
       { path: 'validar', component: ValidarComponent },
       { path: 'estadisticas', component: EstadisticasComponent },
-
-      { path: '', redirectTo: '/login', pathMatch: 'full' }
+      { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];

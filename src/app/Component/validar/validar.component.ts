@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
     selector: 'app-validar',
     templateUrl: './validar.component.html',
     styleUrls: ['./validar.component.css'],
-    standalone: false
+    standalone: true
 })
 export class ValidarComponent implements OnInit {
 
