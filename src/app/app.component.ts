@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
-import { Router, RouterOutlet, RouterModule, NavigationEnd } from '@angular/router';
+import { Router, RouterOutlet, RouterModule, NavigationEnd } from '@angular/router'
 import { CommonModule } from '@angular/common';
 import { filter, Subscription } from 'rxjs';
 import { routes } from './app.routes';
@@ -12,6 +12,7 @@ import { routes } from './app.routes';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent implements AfterViewInit, OnDestroy {
   private routerSubscription: Subscription | undefined;
 

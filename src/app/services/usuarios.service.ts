@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuariosServicesService {
+export class UsuariosService {
 
   private apiUrl = 'https://localhost:44322/api/Usuario'
 

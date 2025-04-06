@@ -8,7 +8,7 @@ import { VincularTrampaModel } from '../Models/Trampa/VincularTrampaModel';
 @Injectable({
   providedIn: 'root'
 })
-export class TrampaServicesService {
+export class TrampaService {
 
   private apiUrl = 'https://localhost:44322/api/Trampa'
 
