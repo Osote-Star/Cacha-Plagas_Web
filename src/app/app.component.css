@@ -1,4 +1,30 @@
 
+.header-with-overlay {
+  position: relative;
+  min-height: 200px;
+  overflow: hidden; /* Recorta lo que se desborde */
+}
+
+.header-with-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho */
+  height: 100%;
+  background-image: url('../assets/banner.png');
+  background-size: cover; /* Altura fija, ancho proporcional */
+  background-position: center;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+/* Contenedor del contenido */
+.header-with-overlay .container {
+  position: relative;
+  z-index: 1; /* Asegura que esté sobre la imagen */
+}
+
 .nav-container {
     position: relative;
     overflow: hidden;

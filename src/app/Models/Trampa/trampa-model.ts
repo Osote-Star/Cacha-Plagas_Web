@@ -11,4 +11,5 @@ export interface TrampaModel {
   EstatusSensor: boolean;
   EstatusPuerta: boolean;
   Capturas?: CapturaModel[];
+  description?: string; // Agregamos la propiedad opcional
 }
