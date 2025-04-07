@@ -24,11 +24,11 @@ interface ModelDictionary {
 export class VerTrampasComponent{
   PaginadoRegistros!: number;
   PaginadoPaginas!: number;
+  Trampas: TrampaModel[] = []; 
+  Pagina: number = 1;
   PredefinedModels: string[] = ['Rat-Catcher', 'Fly-Catcher', 'Snake-Catcher', 'Spider-Catcher'];
-  Trampas: TrampaModel[] = [];
   AddTrampForm!: FormGroup;
   ModalVisible: boolean = false;
-  Pagina: number = 1;
   modelDescriptions: ModelDictionary = {
     'Rat-Catcher': 'Una trampa diseñada para capturar ratas de manera eficiente y segura.',
     'Fly-Catcher': 'Dispositivo especializado en atrapar moscas y otros insectos voladores.',

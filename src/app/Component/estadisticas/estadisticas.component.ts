@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } 
 import { TrampaModel } from '../../Models/Trampa/trampa-model';
 import { CardModule } from 'primeng/card';
 import { AfterViewChecked } from '@angular/core';
+import { TrampaService } from '../../services/trampa.service';
+import { TrampaPaginadoUserDto } from '../../Models/Trampa/TrampaPaginadoUserDto';
 
 
 @Component({
@@ -19,22 +21,18 @@ import { AfterViewChecked } from '@angular/core';
   standalone: true
 })
 export class EstadisticasComponent {
+  paginadoYtrampaDto!: TrampaPaginadoUserDto;
   esAdmin: boolean = false; // Variable para identificar si es admin o usuario
   selectedTrampa: any = null; // Variable para guardar la trampa seleccionada
-
-  // Datos de las trampas que se utilizarán en el frontend
-  products = Array(8).fill({
-    id: '9347',
-    name: 'RAT-TRAP',
-    description: 'Especializada en ratas, esta trampa es simple y efectiva, cumple su objetivo gracias a su tamaño y materiales resistentes.',
-    imageUrl: '/assets/Trampa.png'
-  });
-
+  PaginadoRegistros!: number;
+  PaginadoPaginas!: number;
+  Trampas: TrampaModel[] = []; 
+  Pagina: number = 1;
   AddTrampForm!: FormGroup;
   ModalVisible: boolean = false;
   
   
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder, private trampaService: TrampaService) { 
     if (typeof window !== 'undefined' && window.localStorage) {
       const rol = localStorage.getItem('rol');
       this.esAdmin = rol === 'admin';
@@ -47,8 +45,22 @@ export class EstadisticasComponent {
       Modelo: ['', Validators.required]
     });
   }
+  
+  getTrampas() {
+    this.trampaService.getAllTrampasUsuario(this.paginadoYtrampaDto).subscribe({
+      next: (response) => {
+        this.PaginadoPaginas = response.totalPaginas;
+        this.PaginadoRegistros = response.totalRegistros;
+        this.Trampas = response.trampas;
+        console.log('Trampas cargadas:', this.Trampas);
+      },
+      error: (err) => {
+        console.error('Error al obtener trampas:', err);
+      }
+    });
+}
 
-  saveTrampa() {
+  saveTrampa() { 
     // Lógica para guardar la trampa
     console.log(this.selectedTrampa); // Muestra el producto seleccionado al guardar
   }
