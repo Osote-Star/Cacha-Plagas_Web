@@ -64,4 +64,6 @@ export class LoginComponent {
     console.log("Redirigiendo a registrar...");
     this.router.navigate(['registrar']);
   }
+
+  
 }
