@@ -1,24 +1,27 @@
 <div class="bodyxd">
-  <div class="login-container">
-      <div class="circle">
-          <div class="logo">
-              <img src="/assets/rata_pro.png"/>
-          </div>
-      </div>
-      <h1>Cacha Plagas</h1>
-      <h2>Iniciar Sesion</h2>
-      <div class="input-group">
-          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Usuario">
-          <input type="text" placeholder="Correo">
-      </div>
-      <div class="input-group">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747614.png" alt="Contraseña">
-          <input type="password" placeholder="Contraseña">
-      </div>
-      <a (click)="redirigirC()">¿Haz olvidado tu contraseña? <b>Click aquí</b></a>
-      <br><br>
-      <button class="btn">Iniciar Sesión</button>
-      <br><br>
-      <a (click)="redirigirR()">¿No tienes cuenta? <b>Click aquí</b></a>
+    <div class="login-container">
+        <div class="circle">
+            <div class="logo">
+                <img src="/assets/rata_pro.png"/>
+            </div>
+        </div>
+        <h1>Cacha Plagas</h1>
+        <h2>Iniciar Sesion</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="input-group">
+                <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Usuario">
+                <input type="text" formControlName="email" placeholder="Correo">
+            </div>
+            <div class="input-group">
+                <img src="https://cdn-icons-png.flaticon.com/512/747/747614.png" alt="Contraseña">
+                <input type="password" formControlName="contrasena" placeholder="Contraseña">
+            </div>
+            <a (click)="redirigirC()">¿Haz olvidado tu contraseña? <b>Click aquí</b></a>
+            <br><br>
+            <button type="submit" class="btn" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+            <br><br>
+            <a (click)="redirigirR()">¿No tienes cuenta? <b>Click aquí</b></a>
+            <p *ngIf="error" style="color: red;">{{ error }}</p>
+        </form>
+    </div>
   </div>
-</div>
