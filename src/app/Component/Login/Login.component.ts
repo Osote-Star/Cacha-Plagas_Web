@@ -9,9 +9,9 @@ import { TokenModel } from '../../Models/Usuario/TokenModel';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule], // Módulos necesarios
-  templateUrl: './Login.component.html', // Usa tu HTML existente
-  styleUrls: ['./Login.component.css'] // Usa tu CSS existente
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule], 
+  templateUrl: './Login.component.html',
+  styleUrls: ['./Login.component.css'] 
 })
 export class LoginComponent {
   private fb = inject(FormBuilder);
@@ -40,7 +40,7 @@ export class LoginComponent {
           if (tokens) {
             this.authService.saveTokens(tokens); // Guarda los tokens en localStorage
             this.error = '';
-            this.router.navigate(['ver-trampas']); // Redirige después del login
+            this.router.navigate(['estadisticas']); // Redirige después del login
           } else {
             this.error = 'Credenciales inválidas';
           }

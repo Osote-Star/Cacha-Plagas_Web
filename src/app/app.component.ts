@@ -3,6 +3,7 @@ import { Router, RouterOutlet, RouterModule, NavigationEnd } from '@angular/rout
 import { CommonModule } from '@angular/common';
 import { filter, Subscription } from 'rxjs';
 import { routes } from './app.routes';
+import { AuthService } from './services/auth.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { routes } from './app.routes';
 export class AppComponent implements AfterViewInit, OnDestroy {
   private routerSubscription: Subscription | undefined;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
     this.router.resetConfig(routes); // Aplica las rutas desde app.route.ts
   }
   title = 'Cacha-Plagas_Web';
@@ -28,6 +29,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     }, 0);
   }
 
+  
   ngOnDestroy() {
     // Desuscribirse para evitar memory leaks
     if (this.routerSubscription) {
@@ -84,5 +86,11 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       gradienteTab.classList.add('estadisticas-gradiente-active');
 
     }
+    
+  }
+
+  cerrarSesion() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

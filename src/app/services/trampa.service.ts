@@ -11,14 +11,13 @@ import { GetTrampaDto } from '../Models/Trampa/GetTrampaDto';
 })
 export class TrampaService {
 
-  private apiUrl = 'https://jgqvrw0w-5086.usw3.devtunnels.ms/api/Trampa'
+  private apiUrl = 'https://localhost:44322/api/Trampa';
 
   constructor(private http:HttpClient) {
   }
 
   private getHeaders(): HttpHeaders {
-    //const token = localStorage.getItem('token') || ''; // Obtener el token de localStorage
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjciLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJwcnVlYmEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJ1c3VhcmlvIiwiZXhwIjoxNzQ0MDA5OTQyfQ.ZN9L6IFTW57sGZBenYDN5VyMDWMjA0T33mWtNqc-whs'
+    const token = localStorage.getItem('accessToken') || ''; // Obtener el token de localStorage
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}` // Añadir el token al encabezado

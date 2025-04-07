@@ -44,4 +44,16 @@ export class AuthService {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
   }
+
+  logout() {
+
+    // Limpiar tokens del almacenamiento
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+  }
+
+  estaAutenticado(): boolean {
+    const token = localStorage.getItem('accessToken');
+    return !!token;
+  }
 }
