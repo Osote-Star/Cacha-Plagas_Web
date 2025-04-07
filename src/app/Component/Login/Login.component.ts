@@ -1,48 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { LoginModel } from '../../Models/Usuario/LoginModel';
+import { TokenModel } from '../../Models/Usuario/TokenModel';
 
 @Component({
-    selector: 'app-Login',
-    templateUrl: './Login.component.html',
-    styleUrls: ['./Login.component.css'],
-    standalone: true
+  selector: 'app-login',
+  standalone: true,
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule], // Módulos necesarios
+  templateUrl: './Login.component.html', // Usa tu HTML existente
+  styleUrls: ['./Login.component.css'] // Usa tu CSS existente
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  private fb = inject(FormBuilder);
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
-    loginForm: FormGroup;
-    error: string = '';
+  loginForm: FormGroup;
+  error: string = '';
 
-    constructor(
-      private fb: FormBuilder,
-      private authService: AuthService,
-      private router: Router
-    ) {
-      this.loginForm = this.fb.group({
-        email: ['', [Validators.required, Validators.email]],
-        contrasena: ['', Validators.required]
-      });
-    }
-
-  ngOnInit() {
+  constructor() {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      contrasena: ['', Validators.required]
+    });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.loginForm.valid) {
-      const credentials: LoginModel = this.loginForm.value;
-      this.authService.Login(credentials).subscribe({
-        next: (token) => {
-          if (token) {
-            this.authService.setToken(token);
-            this.router.navigate(['ver-trampas']); // Redirige a donde quieras después del login
+      const credentials: LoginModel = {
+        email: this.loginForm.get('email')?.value,
+        contrasena: this.loginForm.get('contrasena')?.value
+      };
+
+      this.authService.login(credentials).subscribe({
+        next: (tokens: TokenModel) => {
+          if (tokens) {
+            this.authService.saveTokens(tokens); // Guarda los tokens en localStorage
+            this.error = '';
+            this.router.navigate(['ver-trampas']); // Redirige después del login
           } else {
             this.error = 'Credenciales inválidas';
           }
         },
         error: (err) => {
-          this.error = 'Error al iniciar sesión';
+          this.error = 'Error al iniciar sesión. Verifica tus credenciales.';
           console.error(err);
         }
       });
@@ -50,17 +54,14 @@ export class LoginComponent implements OnInit {
       this.error = 'Por favor, completa todos los campos correctamente';
     }
   }
-  
-  redirigirC() {
-    console.log("Redirigiendo...");
+
+  redirigirC(): void {
+    console.log("Redirigiendo a recuperar contraseña...");
     this.router.navigate(['recuperar-contrasena']);
   }
 
-  redirigirR() {
-    console.log("Redirigiendo...");
+  redirigirR(): void {
+    console.log("Redirigiendo a registrar...");
     this.router.navigate(['registrar']);
   }
-
 }
-
-
