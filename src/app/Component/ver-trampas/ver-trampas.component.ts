@@ -22,7 +22,9 @@ interface ModelDictionary {
     standalone: true
 })
 export class VerTrampasComponent{
-  PredefinedModels: string[] = ['Rat-Catcher', 'Fly-Catcher', 'Snake-Catcher', 'Modelo D'];
+  PaginadoRegistros!: number;
+  PaginadoPaginas!: number;
+  PredefinedModels: string[] = ['Rat-Catcher', 'Fly-Catcher', 'Snake-Catcher', 'Spider-Catcher'];
   Trampas: TrampaModel[] = [];
   AddTrampForm!: FormGroup;
   ModalVisible: boolean = false;
@@ -41,16 +43,17 @@ export class VerTrampasComponent{
       IdTrampa: ['', Validators.required],
       Modelo: ['', Validators.required]
     });
-
     this.getTrampas(this.Pagina)
   }
 
   getTrampas(pagina: number) {
     this.trampaService.getAllTrampas(pagina).subscribe({
       next: (response) => {
+        this.PaginadoPaginas = response.totalPaginas,
+        this.PaginadoRegistros = response.totalRegistros,
         this.Trampas = response.trampas.map((trampa: TrampaModel) => ({
           ...trampa,
-          description: this.modelDescriptions[trampa.Modelo] || 'Descripción no disponible'
+          description: this.modelDescriptions[trampa.modelo] || 'Descripción no disponible'
         }));
         console.log('Trampas cargadas:', this.Trampas);
       },
@@ -59,6 +62,8 @@ export class VerTrampasComponent{
       }
     });
   }
+
+
   saveTrampa() {
 
   }

@@ -2,14 +2,14 @@ import { CapturaModel } from '../Captura/captura-model';
 
 export interface TrampaModel {
   _id: string;
-  IDTrampa: number;
-  IDUsuario: number;
-  Imagen: string;
-  Modelo: string;
-  Localizacion: string;
-  EstatusTrampa: boolean;
-  EstatusSensor: boolean;
-  EstatusPuerta: boolean;
-  Capturas?: CapturaModel[];
+  idTrampa: number;
+  idUsuario: number;
+  imagen: string;
+  modelo: string;
+  localizacion: string;
+  estatusTrampa: boolean;
+  estatusSensor: boolean;
+  estatusPuerta: boolean;
+  capturas?: CapturaModel[];
   description?: string; // Agregamos la propiedad opcional
 }

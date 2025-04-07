@@ -1,7 +1,7 @@
 export interface CapturaModel {
     _id: string;
-    IDCaptura: number;
-    IDTrampa: number;
-    Animal: string;
-    FechaCaptura: Date;
+    idCaptura: number;
+    idTrampa: number;
+    animal: string;
+    fechaCaptura: Date;
 }
