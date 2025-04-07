@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } 
 import { CardModule } from 'primeng/card';
 import { TrampaModel } from '../../Models/Trampa/trampa-model';
 import { TrampaService } from '../../services/trampa.service';
+import { GetTrampaDto } from '../../Models/Trampa/GetTrampaDto';
 
 interface ModelDictionary {
   [key: string]: string;
@@ -45,13 +46,17 @@ export class VerTrampasComponent{
   }
 
   getTrampas(pagina: number) {
-    this.trampaService.getAllTrampas(pagina).subscribe((data) => {
-      // Mapeamos los datos para agregar la descripción
-      this.Trampas = data.map((trampa: TrampaModel) => ({
-        ...trampa,
-        description: this.modelDescriptions[trampa.Modelo] || 'Descripción no disponible'
-      }));
-      console.log(this.Trampas); // Verifica los datos con descripciones
+    this.trampaService.getAllTrampas(pagina).subscribe({
+      next: (response) => {
+        this.Trampas = response.trampas.map((trampa: TrampaModel) => ({
+          ...trampa,
+          description: this.modelDescriptions[trampa.Modelo] || 'Descripción no disponible'
+        }));
+        console.log('Trampas cargadas:', this.Trampas);
+      },
+      error: (err) => {
+        console.error('Error al obtener trampas:', err);
+      }
     });
   }
   saveTrampa() {
