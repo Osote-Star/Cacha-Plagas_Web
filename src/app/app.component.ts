@@ -40,7 +40,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   esInterfazEspecial(): boolean {
     const currentUrl = this.router.url.toLowerCase(); // Normaliza a minúsculas
     return currentUrl === '/login' || currentUrl === '/registrar' || 
-           currentUrl === '/recuperar-contrasena' || currentUrl === '/validar';
+           currentUrl === '/recuperar-contrasena' || currentUrl === '/validar' || 
+           currentUrl === '/cambiarcontrasena' || currentUrl === '/registrar';
+           
   }
 
   private setupNavHighlight() {

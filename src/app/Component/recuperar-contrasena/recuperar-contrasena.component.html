@@ -7,12 +7,20 @@
       </div>
       <h1>Cacha Plagas</h1>
       <h2>Recuperar Contraseña</h2>
+
       <div class="input-group">
-          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Usuario">
-          <input type="text" placeholder="Correo">
+        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Usuario">
+        <input
+          type="email"
+          [(ngModel)]="correo.emailReceptor"
+          name="email"
+          placeholder="Correo"
+          required
+        />
       </div>
+
       <br>
-      <button class="btn" (click)="redirigir()">Recuperar</button>
+      <button class="btn" (click)="enviarCorreo()">Recuperar</button>
       <br><br>
       <a href="#">¿No tienes cuenta? <b>Click aquí</b></a>
   </div>
