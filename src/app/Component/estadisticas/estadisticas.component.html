@@ -56,9 +56,9 @@
           <!-- Contenido principal -->
           <ng-template pTemplate="body">
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <small class="text-muted">{{ trampa.idTrampa }}</small>
+              <small *ngIf="!esAdmin" class="text-muted">{{ trampa.localizacion }}</small>
               <small class="mb-0">{{ trampa.modelo }}</small>
-            </div>
+            </div>  
             <p class="small" style="font-size: 0.9rem;">
               {{ trampa.description }}
             </p>
