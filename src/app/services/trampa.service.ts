@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { TrampaModel } from '../Models/Trampa/trampa-model';
 import { VincularTrampaModel } from '../Models/Trampa/VincularTrampaModel';
 import { GetTrampaDto } from '../Models/Trampa/GetTrampaDto';
+import { TrampaPaginadoUserDto } from '../Models/Trampa/TrampaPaginadoUserDto';
 
 
 @Injectable({
@@ -28,10 +29,16 @@ export class TrampaService {
     const headers = this.getHeaders();
     return this.http.get<GetTrampaDto>(`${this.apiUrl}/GetAllTrampas/${pagina}`, {headers});
   }
+
+  getAllTrampasUsuario(atributos: TrampaPaginadoUserDto): Observable<GetTrampaDto> {
+    const headers = this.getHeaders();
+    return this.http.post<GetTrampaDto>(`${this.apiUrl}/GetAllTrampasUsuario`, atributos, {headers});
+  } 
+  
   MostrarEstadistica(id: any): Observable<TrampaModel> {
     return this.http.get<TrampaModel>(`${this.apiUrl}/MostrarEstadistica/${ id }`);
   }
-  VincularTrampa(trampa: VincularTrampaModel): Observable<TrampaModel> {
+  AgregarTrampa(trampa: VincularTrampaModel): Observable<TrampaModel> {
     return this.http.put<TrampaModel>(`${this.apiUrl}/MostrarEstadistica`, trampa);
   }
 

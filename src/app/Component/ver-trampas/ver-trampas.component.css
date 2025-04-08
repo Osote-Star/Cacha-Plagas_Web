@@ -16,3 +16,13 @@
       margin-right: 7%;
     }
   }
+  .rowAnimation ::ng-deep .cardAnimation .p-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none !important;
+  }
+  
+  .rowAnimation ::ng-deep .cardAnimation .p-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer; /* Cambia el cursor a una mano al hacer hover */
+  }

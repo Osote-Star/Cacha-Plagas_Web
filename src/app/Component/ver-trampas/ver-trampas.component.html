@@ -8,7 +8,7 @@
           class="w-100">
         </p-select>
       </div>
-      <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+      <div *ngIf="esAdmin" class="col-4 col-sm-3 col-md-2 col-lg-1">
         <button 
           pButton 
           class="btn btn-success btn-primary w-100" 
@@ -19,13 +19,13 @@
       </div>
     </div>
     
-    <div class="row">
+    <div class="row rowAnimation">
       <div *ngFor="let trampa of Trampas" class="col-md-3 mb-5">
-        <p-card class="h-100" [style]="{ 'width': '100%', 'overflow': 'hidden' }">
+        <p-card class="cardAnimation h-100" [style]="{ 'width': '100%', 'overflow': 'hidden' }" (click)="esAdmin ? openModal() : null">
           <!-- Header con imagen -->
           <ng-template pTemplate="header">
             <div class="bg-primary bg-gradient p-3 d-flex justify-content-center">
-              <img [src]="trampa.Imagen" alt="Producto" 
+              <img [src]="trampa.imagen" alt="Producto" 
                   class="img-fluid" 
                   style="height: 150px; object-fit: contain;">
             </div>
@@ -33,8 +33,8 @@
           <!-- Contenido principal -->
           <ng-template pTemplate="body">
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <small class="text-muted">{{ trampa.IDTrampa }}</small>
-              <small class="mb-0">{{ trampa.Modelo }}</small>
+              <small class="text-muted">{{ trampa.idTrampa }}</small>
+              <small class="mb-0">{{ trampa.modelo }}</small>
             </div>
             <p class="small" style="font-size: 0.9rem;">
               {{ trampa.description }}
