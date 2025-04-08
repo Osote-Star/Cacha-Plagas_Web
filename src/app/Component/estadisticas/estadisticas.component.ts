@@ -58,9 +58,64 @@ export class EstadisticasComponent {
       IdTrampa: ['', Validators.required],
       Modelo: ['', Validators.required]
     });
-    this.getTrampas(this.paginadoYtrampaDto)
+    if(this.esAdmin)
+    {
+      this.getTrampasCount();''
+      this.getTrampasHardocodeadas();   
+    }
+    else
+    {
+      this.getTrampas(this.paginadoYtrampaDto);
+    }
   }
-  
+
+  getTrampasCount(){
+    this.trampaService.getTrampaCount().subscribe({
+      next: (response) =>{
+        this.totalTrampas = response;
+      }
+    });
+    console.log(this.totalTrampas)
+  }
+
+  getTrampasHardocodeadas() {
+    this.Trampas = [
+      {
+        modelo: 'Plaga grande',
+        imagen: '/assets/plagagrande.png',
+        _id: '0',
+        idTrampa: 0,
+        idUsuario: 0,
+        localizacion: '',
+        estatusTrampa: false,
+        estatusSensor: false,
+        estatusPuerta: false
+      },
+      {
+        modelo: 'Plaga mediana',
+        imagen: '/assets/plagamediana.png',
+        _id: '0',
+        idTrampa: 0,
+        idUsuario: 0,
+        localizacion: '',
+        estatusTrampa: false,
+        estatusSensor: false,
+        estatusPuerta: false
+      },
+      {
+        modelo: 'Roedor',
+        imagen: '/assets/roedor.png',
+        _id: '0',
+        idTrampa: 0,
+        idUsuario: 0,
+        localizacion: '',
+        estatusTrampa: false,
+        estatusSensor: false,
+        estatusPuerta: false,
+      }
+    ];
+  }
+
   getTrampas(paginaYuser: TrampaPaginadoUserDto) {
     this.trampaService.getAllTrampasUsuario(paginaYuser).subscribe({
       next: (response) => {

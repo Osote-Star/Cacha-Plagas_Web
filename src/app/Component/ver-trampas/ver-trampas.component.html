@@ -4,8 +4,8 @@
         <p-select
           id="modelo"
           [options]="PredefinedModels"
-          placeholder="Selecciona un Modelo"
-          class="w-100">
+          class="w-100"
+          (onChange)="onModelSelected($event)"> <!-- Captura el cambio -->
         </p-select>
       </div>
       <div *ngIf="esAdmin" class="col-4 col-sm-3 col-md-2 col-lg-1">
@@ -21,8 +21,9 @@
     
     <div class="row rowAnimation">
       <div *ngFor="let trampa of Trampas" class="col-md-3 mb-5">
-        <p-card class="cardAnimation h-100" [style]="{ 'width': '100%', 'overflow': 'hidden' }" (click)="esAdmin ? openModal() : null">
-          <!-- Header con imagen -->
+        <p-card class="cardAnimation h-100" 
+        [style]="{ 'width': '100%', 'overflow': 'hidden' }" 
+        (click)="esAdmin ? openModalEdit(trampa) : null">          <!-- Header con imagen -->
           <ng-template pTemplate="header">
             <div class="bg-primary bg-gradient p-3 d-flex justify-content-center">
               <img [src]="trampa.imagen" alt="Producto" 
@@ -74,3 +75,28 @@
       </div>
     </ng-template>
   </p-dialog>
+
+
+<p-dialog header="Editar Trampa" [(visible)]="EditModalVisible" [modal]="true" 
+  [closable]="true" [style]="{width: '400px', height: '270px'}" [contentStyle]="{'overflow': 'visible'}">
+  
+  <form [formGroup]="EditTrampForm" (ngSubmit)="editTrampa()">
+    <div class="mb-3">
+      <label for="modelo" class="form-label">Modelo</label>
+      <div>
+        <p-select
+          id="modelo"
+          [options]="EditTrampaModels"
+          formControlName="Modelo"
+          placeholder="Selecciona un Modelo">
+        </p-select>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end mt-5"> <!-- Cambiado de mt-3 a mt-4 -->
+      <button (click)="closeModalEdit()" type="button" class="btn btn-secondary me-2">Cerrar</button>
+      <button pButton type="submit" icon="pi pi-pencil" label="Editar" 
+              class="btn" style="background-color: orange; border-color: orange;" 
+              [disabled]="!EditTrampForm.valid"></button>
+    </div>
+  </form>
+</p-dialog>

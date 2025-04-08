@@ -10,7 +10,7 @@ import { AgregarUsuarioModel } from '../Models/Usuario/AgregarUsuarioModel';
 })
 export class UsuariosService {
 
-  private apiUrl = 'https://localhost:44322/api/Usuarios'
+  private apiUrl = 'https://jgqvrw0w-5086.usw3.devtunnels.ms/api/Usuarios'
 
   constructor(private http:HttpClient) {
   }
