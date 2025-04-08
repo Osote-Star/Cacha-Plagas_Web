@@ -1,19 +1,29 @@
 <body>
-  <div class="login-container">
+    <div class="login-container">
       <div class="circle">
-          <div class="logo">
-              <img src="/assets/rata_pro.png"/>
-          </div>
+        <div class="logo">
+          <img src="/assets/rata_pro.png" />
+        </div>
       </div>
+  
       <h1>Cacha Plagas</h1>
-      <h2>Validar Codigo</h2>
+      <h2>Validar Código</h2>
+  
+      <!-- Solo mostrar el campo de código -->
       <div class="input-group">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747614.png" alt="Codigo">
-          <input type="text" placeholder="Codigo">
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747614.png" alt="Código" />
+        <input
+          type="text"
+          placeholder="Código"
+          [(ngModel)]="validacion.codigo"
+          name="codigo"
+          required
+        />
       </div>
-      <br><br>
-      <button class="btn">Iniciar Sesión</button>
-      <br><br>
+  
+      <br /><br />
+      <button class="btn" (click)="validarCodigo()">Validar</button>
+      <br /><br />
       <a href="#">¿No tienes cuenta? <b>Click aquí</b></a>
-  </div>
-</body>
+    </div>
+  </body>
