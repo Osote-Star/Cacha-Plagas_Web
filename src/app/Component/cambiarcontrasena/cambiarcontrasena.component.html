@@ -1,0 +1,25 @@
+
+<div class="bodyxd">
+  <div class="login-container">
+      <div class="circle">
+          <div class="logo">
+              <img src="/assets/rata_pro.png"/>
+          </div>
+      </div>
+      <h1>Cacha Plagas</h1>
+      <h2>Cambiar Contraseña</h2>
+      <form [formGroup]="cambiarContrasenaForm" (ngSubmit)="cambiarContrasenaFunc()">
+          <div class="input-group">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Usuario">
+              <input type="text" formControlName="email" placeholder="Correo">
+          </div>
+          <div class="input-group">
+              <img src="https://cdn-icons-png.flaticon.com/512/747/747614.png" alt="Contraseña">
+              <input type="password" formControlName="contrasena" placeholder="Contraseña">
+          </div>
+          <br><br>
+          <button type="submit" class="btn" [disabled]="cambiarContrasenaForm.invalid">Cambiar Contraseña</button>
+          <br><br>
+      </form>
+  </div>
+</div>
