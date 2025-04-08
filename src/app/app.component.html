@@ -1,35 +1,40 @@
 <main>
-    <!-- Mostrar solo si no estamos en login o registro -->
-    <div *ngIf="!esInterfazEspecial()">
-      <header class="bg-primary text-white py-4 text-center w-100 header-with-overlay">
-        <div class="container">
-          <h1 class="display-5">Cacha-Plagas</h1>
-          <p class="lead">Moral y eficiente</p>
-        </div>
-      </header>
-      
-      <nav class="w-100 mb-4 nav-container" style="background-color: #2697FF;">
-        <div class="container-fluid p-0">
-          <div class="row">
-            <div class="col-10">
-              <ul class="nav flex-row" id="nav-tabs">
-                <li class="nav-item text-center w-25" id="trampas-tab">
-                  <a [routerLink]="['/ver-trampas']" class="nav-link text-white py-3 px-4 fw-bold">Trampas</a>
-                </li>
-                <li class="nav-item text-center w-25" id="estadisticas-tab">
-                  <a [routerLink]="['/estadisticas']" class="nav-link text-white py-3 px-4 fw-bold">Estadísticas</a>
-                </li>
-                <li class="nav-item text-center w-25" id="gradiente-tab">
-                </li>
-              </ul>
-            </div>
+  <!-- Mostrar solo si no estamos en login o registro -->
+  <div *ngIf="!esInterfazEspecial()">
+    <header class="bg-primary text-white py-4 text-center w-100 header-with-overlay">
+      <div class="container">
+        <h1 class="display-5">Cacha-Plagas</h1>
+        <p class="lead">Moral y eficiente</p>
+      </div>
+    </header>
+        
+    <nav class="w-100 mb-4 nav-container" style="background-color: #2697FF;">
+      <div class="container-fluid p-0">
+        <div class="row">
+          <div class="col-10">
+            <ul class="nav flex-row" id="nav-tabs">
+              <li class="nav-item text-center w-25" id="trampas-tab">
+                <a [routerLink]="['/ver-trampas']" class="nav-link text-white py-3 px-4 fw-bold">Trampas</a>
+              </li>
+              <li class="nav-item text-center w-25" id="estadisticas-tab">
+                <a [routerLink]="['/estadisticas']" class="nav-link text-white py-3 px-4 fw-bold">Estadísticas</a>
+              </li>
+              <li class="nav-item text-center w-25" id="gradiente-tab"></li>
+
+              <!-- Botón Cerrar sesión alineado a la derecha -->
+              <li class="nav-item ml-auto">
+                <button (click)="cerrarSesion()" class="nav-link text-white py-3 px-4 fw-bold">
+                  Cerrar sesión
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
-      </nav>
-    </div>
-  
-    <div class="container-fluid">
-      <router-outlet></router-outlet>
-    </div>
-  </main>
-  
+      </div>
+    </nav>
+  </div>
+
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+</main>

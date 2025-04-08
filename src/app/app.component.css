@@ -91,3 +91,36 @@
   {
       background: linear-gradient(90deg,  #003380 0%, #003380 12.5%, #2697FF 50%);
   }
+
+  /* Estilos generales para el botón */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+/* Estilo específico para el botón de Cerrar sesión */
+.btn-danger {
+  background-color: #d9534f; /* Rojo claro */
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c9302c; /* Rojo oscuro cuando pasa el mouse */
+}
+
+.btn-danger:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra al hacer foco */
+}
+
+/* Para hacer el botón más accesible */
+.btn:disabled {
+  background-color: #ccc; /* Gris para indicar que está deshabilitado */
+  cursor: not-allowed; /* Cambiar el cursor para indicar que no se puede hacer clic */
+}

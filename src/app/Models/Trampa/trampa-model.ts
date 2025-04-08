@@ -4,7 +4,7 @@ export interface TrampaModel {
   _id: string;
   idTrampa: number;
   idUsuario: number;
-  imagen: string;
+  imagen?: string;
   modelo: string;
   localizacion: string;
   estatusTrampa: boolean;

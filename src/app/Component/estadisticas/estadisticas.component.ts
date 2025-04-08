@@ -11,7 +11,12 @@ import { CardModule } from 'primeng/card';
 import { AfterViewChecked } from '@angular/core';
 import { TrampaService } from '../../services/trampa.service';
 import { TrampaPaginadoUserDto } from '../../Models/Trampa/TrampaPaginadoUserDto';
+import { JwtPayload } from '../../Models/Usuario/JwtPayload';
+import { AuthService } from '../../services/auth.service';
 
+interface ModelDictionary {
+  [key: string]: string;
+}
 
 @Component({
   selector: 'app-estadisticas',
@@ -21,7 +26,8 @@ import { TrampaPaginadoUserDto } from '../../Models/Trampa/TrampaPaginadoUserDto
   standalone: true
 })
 export class EstadisticasComponent {
-  paginadoYtrampaDto!: TrampaPaginadoUserDto;
+  role: string = '';
+  paginadoYtrampaDto: TrampaPaginadoUserDto = new TrampaPaginadoUserDto(); // ¡Inicializado aquí!
   esAdmin: boolean = false; // Variable para identificar si es admin o usuario
   selectedTrampa: any = null; // Variable para guardar la trampa seleccionada
   PaginadoRegistros!: number;
@@ -30,12 +36,20 @@ export class EstadisticasComponent {
   Pagina: number = 1;
   AddTrampForm!: FormGroup;
   ModalVisible: boolean = false;
-  
-  
-  constructor(private formBuilder: FormBuilder, private trampaService: TrampaService) { 
+  tokenDecodificado: JwtPayload | null = null;
+  totalTrampas: number = 0; // Total de trampas (nuevo)
+  modelImages: ModelDictionary = {
+    'Plaga grande': '/assets/plagagrande.png',
+    'Plaga mediana': '../../assets/plagamediana.png',
+    'Roedor': 'assets/roedor.png',
+  };
+
+  constructor(private formBuilder: FormBuilder, private trampaService: TrampaService, private authService: AuthService) { 
+    this.initializeAuthData();
+    this.setClaimsUser();
     if (typeof window !== 'undefined' && window.localStorage) {
-      const rol = localStorage.getItem('rol');
-      this.esAdmin = rol === 'admin';
+      const role = (this.role || '');
+      this.esAdmin = role === 'administrador';
     }
   }
 
@@ -44,34 +58,81 @@ export class EstadisticasComponent {
       IdTrampa: ['', Validators.required],
       Modelo: ['', Validators.required]
     });
+    this.getTrampas(this.paginadoYtrampaDto)
   }
   
-  getTrampas() {
-    this.trampaService.getAllTrampasUsuario(this.paginadoYtrampaDto).subscribe({
+  getTrampas(paginaYuser: TrampaPaginadoUserDto) {
+    this.trampaService.getAllTrampasUsuario(paginaYuser).subscribe({
       next: (response) => {
-        this.PaginadoPaginas = response.totalPaginas;
-        this.PaginadoRegistros = response.totalRegistros;
-        this.Trampas = response.trampas;
+
+        this.PaginadoPaginas = response.totalPaginas,
+        this.PaginadoRegistros = response.totalRegistros,
+        this.totalTrampas = response.totalRegistros,
+
+        this.Trampas = response.trampas.map((trampa: TrampaModel) => ({
+          ...trampa,
+          imagen: this.modelImages[trampa.modelo] || 'Imagen no disponible'
+        }));
         console.log('Trampas cargadas:', this.Trampas);
+
       },
       error: (err) => {
         console.error('Error al obtener trampas:', err);
       }
     });
-}
-
+  }
+  
   saveTrampa() { 
     // Lógica para guardar la trampa
     console.log(this.selectedTrampa); // Muestra el producto seleccionado al guardar
   }
 
-  openModal(product: any) {
-    this.selectedTrampa = product; // Asigna el producto seleccionado a la variable
+  openModal(trampas: any) {
+    this.selectedTrampa = trampas; // Asigna el producto seleccionado a la variable
     this.ModalVisible = true; // Muestra el modal
   }
-
+  
   closeModal() {
     this.ModalVisible = false;
+  }
+  
+  private initializeAuthData(): void {
+    const accessToken = localStorage.getItem('accessToken');
+    
+    if (accessToken) {
+      try {
+        this.tokenDecodificado = this.authService.getDecodedAccessToken(accessToken);
+        
+        // Verificar si el token está expirado
+        //if (this.tokenDecodificado && this.isTokenExpired(this.tokenDecodificado)) {
+          //console.warn('Token has expired');
+          //this.tokenDecodificado = null;
+          //}
+          
+        } catch (error) {
+          console.error('Error decoding token:', error);
+          this.tokenDecodificado = null;
+        }
+      }
+    }
+    
+    private setClaimsUser(): void {
+      if (this.tokenDecodificado !== null && this.tokenDecodificado.role !== undefined) {
+      this.role = this.tokenDecodificado.role;
+    }
+    console.log('token')
+    console.log(this.tokenDecodificado);
+    console.log('token rol')
+    console.log(this.tokenDecodificado?.role);
+    console.log('rol')
+    console.log(this.role);
+    // Si necesitas el userId para paginadoYtrampaDto
+    if (this.tokenDecodificado && this.paginadoYtrampaDto) {
+      this.paginadoYtrampaDto.usuarioId = Number.parseInt(this.tokenDecodificado.nameid); // Asume que userId está en el token
+    }
+    
+    console.log(this.paginadoYtrampaDto.pagina);
+    console.log(this.paginadoYtrampaDto.usuarioId);
   }
   
 }

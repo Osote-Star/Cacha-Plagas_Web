@@ -1,22 +1,38 @@
 <body>
-  <div class="login-container">
+    <form #form="ngForm" (ngSubmit)="AgregarUsuario(usuario)" class="login-container">
       <div class="circle">
-          <div class="logo">
-              <img src="/assets/rata_pro.png"/>
-          </div>
+        <div class="logo">
+          <img src="/assets/rata_pro.png" />
+        </div>
       </div>
       <h1>Cacha Plagas</h1>
       <h2>Registrar</h2>
+  
       <div class="input-group">
-          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Usuario">
-          <input type="text" placeholder="Correo">
+        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Usuario">
+        <input
+          type="text"
+          name="email"
+          [(ngModel)]="usuario.email"
+          placeholder="Correo"
+          required
+        />
       </div>
+  
       <div class="input-group">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747614.png" alt="Contraseña">
-          <input type="password" placeholder="Contraseña">
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747614.png" alt="Contraseña">
+        <input
+          type="password"
+          name="contrasena"
+          [(ngModel)]="usuario.contrasena"
+          placeholder="Contraseña"
+          required
+        />
       </div>
-      <br>
-      <button class="btn" (click)="redirigir()">Registrar</button>
-      <br>
-  </div>
-</body>
+  
+      <br />
+      <button class="btn" type="submit">Registrar</button>
+      <br />
+    </form>
+  </body>
+  

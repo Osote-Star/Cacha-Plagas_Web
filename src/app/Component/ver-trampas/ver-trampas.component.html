@@ -8,7 +8,7 @@
           class="w-100">
         </p-select>
       </div>
-      <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+      <div *ngIf="esAdmin" class="col-4 col-sm-3 col-md-2 col-lg-1">
         <button 
           pButton 
           class="btn btn-success btn-primary w-100" 
@@ -19,9 +19,9 @@
       </div>
     </div>
     
-    <div class="row">
+    <div class="row rowAnimation">
       <div *ngFor="let trampa of Trampas" class="col-md-3 mb-5">
-        <p-card class="h-100" [style]="{ 'width': '100%', 'overflow': 'hidden' }">
+        <p-card class="cardAnimation h-100" [style]="{ 'width': '100%', 'overflow': 'hidden' }" (click)="esAdmin ? openModal() : null">
           <!-- Header con imagen -->
           <ng-template pTemplate="header">
             <div class="bg-primary bg-gradient p-3 d-flex justify-content-center">

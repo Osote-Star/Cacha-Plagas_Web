@@ -57,15 +57,16 @@ body {
     font-size: 18px;
 }
 
-.row .card {
+.rowAnimation ::ng-deep .cardAnimation .p-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none !important;
   }
   
-  .row .card:hover {
-    transform: translateY(-10px); /* Eleva ligeramente */
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3); /* Aumenta la sombra */
+  .rowAnimation ::ng-deep .cardAnimation .p-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer; /* Cambia el cursor a una mano al hacer hover */
   }
-
 
 .card h2 {
     color: #007bff;
