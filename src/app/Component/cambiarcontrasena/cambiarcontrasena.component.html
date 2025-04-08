@@ -1,19 +1,25 @@
-<form [formGroup]="cambiarContrasenaForm" (ngSubmit)="cambiarContrasenaFunc()">
-  <div>
-    <label for="email">Correo:</label>
-    <input id="email" formControlName="email" type="email" placeholder="Ingresa tu correo">
-    <div *ngIf="cambiarContrasenaForm.get('email')?.invalid && cambiarContrasenaForm.get('email')?.touched">
-      <small class="text-danger">Por favor ingresa un correo válido.</small>
-    </div>
-  </div>
 
-  <div>
-    <label for="contrasena">Nueva Contraseña:</label>
-    <input id="contrasena" formControlName="contrasena" type="password" placeholder="Ingresa nueva contraseña">
-    <div *ngIf="cambiarContrasenaForm.get('contrasena')?.invalid && cambiarContrasenaForm.get('contrasena')?.touched">
-      <small class="text-danger">La contraseña debe tener al menos 6 caracteres.</small>
-    </div>
+<div class="bodyxd">
+  <div class="login-container">
+      <div class="circle">
+          <div class="logo">
+              <img src="/assets/rata_pro.png"/>
+          </div>
+      </div>
+      <h1>Cacha Plagas</h1>
+      <h2>Cambiar Contraseña</h2>
+      <form [formGroup]="cambiarContrasenaForm" (ngSubmit)="cambiarContrasenaFunc()">
+          <div class="input-group">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Usuario">
+              <input type="text" formControlName="email" placeholder="Correo">
+          </div>
+          <div class="input-group">
+              <img src="https://cdn-icons-png.flaticon.com/512/747/747614.png" alt="Contraseña">
+              <input type="password" formControlName="contrasena" placeholder="Contraseña">
+          </div>
+          <br><br>
+          <button type="submit" class="btn" [disabled]="cambiarContrasenaForm.invalid">Cambiar Contraseña</button>
+          <br><br>
+      </form>
   </div>
-
-  <button type="submit" [disabled]="cambiarContrasenaForm.invalid">Cambiar Contraseña</button>
-</form>
+</div>

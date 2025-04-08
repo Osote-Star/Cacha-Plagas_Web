@@ -17,7 +17,7 @@ export const routes: Routes = [
       { path: 'ver-trampas', loadComponent: () => import('./Component/ver-trampas/ver-trampas.component').then(m => m.VerTrampasComponent),canActivate: [AuthGuard] },
       { path: 'estadisticas', loadComponent: () => import('./Component/estadisticas/estadisticas.component').then(m => m.EstadisticasComponent),canActivate: [AuthGuard] },
       { path: 'recuperar-contrasena',component: RecuperarContrasenaComponent },
-      { path: 'registrar', component: RegistrarComponent },
+      { path: 'registrar', loadComponent: () => import('./Component/registrar/registrar.component').then(m => m.RegistrarComponent, ),canActivate: [AuthGuard] },
       { path: 'validar', component: ValidarCodigoComponent },
       {path: 'cambiarcontrasena', component: CambiarContrasenaComponent},
       { path: '**', redirectTo: '/login', pathMatch: 'full' }
