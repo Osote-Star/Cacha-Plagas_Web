@@ -15,8 +15,8 @@ import { CambiarContrasenaModel } from '../Models/Usuario/CambiarContrasenaModel
 })
 export class UsuariosService {
 
-  private apiUrl = 'https://localhost:44322/api/Usuarios';
-  private apiUrlEmail = 'https://localhost:44322/api/Emails';
+  private apiUrl = 'https://6tcsdl1g-5086.usw3.devtunnels.ms/api/Usuarios';
+  private apiUrlEmail = 'https://6tcsdl1g-5086.usw3.devtunnels.ms/api/Emails';
 
   constructor(private http:HttpClient) {
   }

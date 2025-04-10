@@ -1,112 +1,79 @@
+<!-- Esto va en Angular (HTML) -->
 <div class="container">
   <div class="content">
-      <div class="info-boxes">
-          <div class="card">
-              <h2>Número de trampas activas</h2>
-              <p style="color: green; font-size: 20px;">🟢{{totalTrampas}}</p>
-          </div>
-          <div class="card">
-              <h2>Capturas</h2>
-              <p>Hoy: 15</p>
-              <p>Última semana: 47</p>
-              <p>Último mes: 70</p>
-          </div>
-          <div class="card">
-              <h2>Horario de mayor actividad</h2>
-              <p style="font-size: 16px;">1am - 8am</p>
-          </div>
-          
-          <!-- Coloca el cuadro de "Zona con mayor capturas" debajo del de "Horario de mayor actividad" -->
-          <div *ngIf="!esAdmin" class="card">
-            <h2>Zona con mayor capturas</h2>
-            <p style="font-size: 16px;">Campo #47</p>
-          </div>
+    <div class="info-boxes">
+      <div class="card">
+        <h2>Número de trampas activas</h2>
+        <p style="color: green; font-size: 20px;">🟢{{totalTrampas}}</p>
       </div>
-
-      <!-- Contenedor para los botones y el gráfico -->
-      <div style="width: 65%;">
-          <div class="button-group">
-              <button>DÍA</button>
-              <button>SEMANA</button>
-              <button>MES</button>
-              <button>TOTAL</button>
-          </div>
-
-          <div class="card chart-card">
-              <div class="chart-container">
-                  <app-grafica></app-grafica>
-              </div>
-          </div>
+      <div class="card">
+        <h2>Capturas</h2>
+        <p>Hoy: 15</p>
+        <p>Última semana: 47</p>
+        <p>Último mes: 70</p>
       </div>
+    </div>
+
+    <div style="width: 65%;">
+      <div class="card chart-card">
+        <div class="chart-container">
+          <app-grafica [data]="capturasPorMes" [labels]="meses"></app-grafica>
+        </div>
+      </div>
+    </div>
   </div>
 
- <!-- Sección de trampas con ID y modelo -->
-<div style="margin: 71px 0">
+  <div style="margin: 71px 0">
     <div class="row rowAnimation">
       <div *ngFor="let trampa of Trampas" class="col-md-3 mb-5">
         <p-card class="cardAnimation h-100" [style]="{ 'width': '100%', 'overflow': 'hidden' }" (click)="openModal(trampa)">
-          <!-- Header con imagen -->
           <ng-template pTemplate="header">
             <div class="bg-primary bg-gradient p-3 d-flex justify-content-center">
-              <img [src]="trampa.imagen" alt="imagen de la trampa"
-                  class="img-fluid" 
-                  style="height: 150px; object-fit: contain;">
+              <img [src]="trampa.imagen" alt="imagen de la trampa" class="img-fluid" style="height: 150px; object-fit: contain;">
             </div>
           </ng-template>
-          <!-- Contenido principal -->
           <ng-template pTemplate="body">
             <div class="d-flex justify-content-between align-items-center mb-2">
               <small *ngIf="!esAdmin" class="text-muted">{{ trampa.localizacion }}</small>
               <small class="mb-0">{{ trampa.modelo }}</small>
-            </div>  
-            <p class="small" style="font-size: 0.9rem;">
-              {{ trampa.description }}
-            </p>
+            </div>
+            <p class="small" style="font-size: 0.9rem;">{{ trampa.description }}</p>
           </ng-template>
-          <!-- Footer opcional -->
         </p-card>
       </div>
     </div>
-</div>
+  </div>
 
-
-<!-- Modal (p-dialog) para agregar trampa -->
-<p-dialog  header="Estadisticas" [(visible)]="ModalVisible" [modal]="true" 
-        [closable]="true" [style]="{width: '90vw', maxWidth: '720px'}" 
-        [contentStyle]="{'height': '45vh', 'overflow': 'auto'}">
-  
-        <div class="info-boxes">
-        <div class="card">
-          <h2 style="color: #007bff">Capturas</h2>
-          <p>Hoy: 15</p>
-          <p>Última semana: 47</p>
-          <p>Último mes: 70</p>
+  <p-dialog header="Estadísticas" [(visible)]="ModalVisible" [modal]="true" [closable]="true" 
+            [style]="{width: '90vw', maxWidth: '720px'}" [contentStyle]="{'height': '45vh', 'overflow': 'auto'}">
+    <div class="info-boxes">
+      <div class="card">
+        <h2 style="color: #007bff">Capturas</h2>
+        <p>Hoy: 15</p>
+        <p>Última semana: 47</p>
+        <p>Último mes: 70</p>
       </div>
       <div class="card">
-        <h2 style="color: #007bff">Ultima captura</h2>
+        <h2 style="color: #007bff">Última captura</h2>
         <p>Lunes 12 de mayo 5:38PM</p>
-    </div>
-   </div>
-        <!-- Botones-->
-        <div style="width: 70%; margin-left: 105px;" >         
-        <div class="button-group button-group-modal">
-          <button>DÍA</button>
-          <button>SEMANA</button>
-          <button>MES</button>
-          <button>TOTAL</button>
       </div>
-      
-<!-- grafica -->
-<div class="card chart-cardmodal">
-  <div class="chart-containermodal">
-<div class="grafica-body p-4">
-  <div style="height: 100%; width: 100%;">
-    <app-grafica [isModalVisible]="ModalVisible"></app-grafica>
-  </div>
+    </div>
+    <div style="width: 70%; margin-left: 105px;">
+      <div class="button-group button-group-modal">
+        <button>DÍA</button>
+        <button>SEMANA</button>
+        <button>MES</button>
+        <button>TOTAL</button>
+      </div>
+      <div class="card chart-cardmodal">
+        <div class="chart-containermodal">
+          <div class="grafica-body p-4">
+            <div style="height: 100%; width: 100%;">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-dialog>
 </div>
-</div>
-</div>
-</div>
-</p-dialog>
-
-

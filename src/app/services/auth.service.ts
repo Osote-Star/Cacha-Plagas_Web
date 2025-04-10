@@ -11,7 +11,7 @@ import { JwtPayload } from '../Models/Usuario/JwtPayload';
 })
 export class AuthService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://jgqvrw0w-5086.usw3.devtunnels.ms/api/Auth'; // Reemplaza con la URL de tu API
+  private apiUrl = 'https://6tcsdl1g-5086.usw3.devtunnels.ms/api/Auth'; // Reemplaza con la URL de tu API
 
   constructor() {}
 

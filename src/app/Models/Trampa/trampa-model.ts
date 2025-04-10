@@ -1,15 +1,15 @@
 import { CapturaModel } from '../Captura/captura-model';
 
-export interface TrampaModel {
-  _id: string;
-  idTrampa: number;
-  idUsuario: number;
+// Esto va en Angular (TypeScript)
+export class TrampaModel {
+  _id: string = '';
+  idTrampa: number = 0;
+  idUsuario: number = 0;
+  modelo: string = '';
+  localizacion: string = '';
+  estatusTrampa: boolean = false;
+  estatusSensor: boolean = false;
+  estatusPuerta: boolean = false;
   imagen?: string;
-  modelo: string;
-  localizacion: string;
-  estatusTrampa: boolean;
-  estatusSensor: boolean;
-  estatusPuerta: boolean;
-  capturas?: CapturaModel[];
-  description?: string; // Agregamos la propiedad opcional
+  description?: string;
 }
